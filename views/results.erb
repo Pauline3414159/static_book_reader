@@ -1,0 +1,12 @@
+<ol>
+  <% @book.search_book(@terms).each_with_index do |pointer, i |%>
+    <% next if pointer.empty? %>
+    <h4>
+      Chapter : <%= i + 1%>
+    </h4>
+    <li>
+      <a href="/../chapters/<%= pointer.keys.first %>"><%= pointer.values.first%></a>
+      
+    </li>
+  <% end %>
+</ol>

@@ -1,0 +1,23 @@
+<article>
+  <h3>
+    <%= @book.table_of_contents[@chapter_number-1]%>
+  </h3>
+  <%= @book.contents[@chapter_number - 1].chapter_contents.join %>
+  <footer>
+    <% if @prev_chapter%>
+    <a href="/chapters/<%= @chapter_number - 1 %>">
+      Previous Chapter
+    </a>
+    <% end %>
+    <% if @next_chapter%>
+    <a href="/chapters/<%= @chapter_number + 1 %>">
+      Next Chapter
+    </a>
+    <% end %>
+    <% if @next_chapter == false%>
+    <a href="/">
+      Home
+    </a>
+    <% end %>
+  </footer>
+</article>

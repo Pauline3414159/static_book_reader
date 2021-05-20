@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title><%= @book.title%> by <%= @book.author %> </title>
+</head>
+<body>
+  <header>
+    <label for="menu">
+      <div role="banner" class="banner">
+        <h1><%= @book.title%></h1>
+        <h2 class="desktop"> <%= @book.author %></h2>
+      </div>
+    </label>
+    <input type="checkbox" name="menu" id="menu">
+    <nav>
+      <ol>
+        <% @book.table_of_contents.each_with_index do |content, i|%>
+        <li>
+          <a href="/chapters/<%= i + 1%>"> 
+            <%= i + 1 %>
+            <%= content %>
+          </a>
+        </li>
+        <% end %>
+        <li>
+          <a href="/search"> 
+            Search
+          </a>
+        </li>
+        <li>
+          <a href="/"> 
+            Home
+          </a>
+        </li>
+      </ol>
+    </nav>
+  </header>
+  <main>
+    <%= yield %>
+  </main>
+  <footer>
+    <a href="/">test</a>
+  </footer>
+</body>
+</html>

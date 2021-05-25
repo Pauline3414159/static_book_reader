@@ -2,9 +2,10 @@ source "https://rubygems.org"
 
 ruby '2.7.0'
 
-require 'sinatra'
-require "sinatra/reloader"
-require 'tilt/erubis'
+gem 'sinatra'
+gem "sinatra-contrib"
+gem 'tilt'
+gem 'erubis'
 
 group :production do
   gem "puma"
